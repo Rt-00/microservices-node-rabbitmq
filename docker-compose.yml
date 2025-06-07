@@ -1,0 +1,11 @@
+services:
+  broker:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672" # TCP -> Enviar e Receber mensagens entre os microserviços
+      - "15672:15672" # Interface gráfica do RabbitMQ
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  rabbitmq_data:
