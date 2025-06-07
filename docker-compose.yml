@@ -7,5 +7,14 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
 
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    ports:
+      - "16686:16686" # UI
+      - "6831:6831" # UDP - Envio dos Traces
+      - "14268:14268" # HTTP - Envio dos Traces
+      - "4317:4317" # Open Telemetry/gRPC
+      - "4318:4318" # Open Telemetry/HTTP
+
 volumes:
   rabbitmq_data:
